@@ -8,7 +8,6 @@ export function EarlyAccess() {
     <section id="early-access" className="relative py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="relative mx-auto max-w-3xl overflow-hidden rounded-xl border border-primary/20 bg-card">
-          {/* Decorative corner accents */}
           <div className="absolute left-0 top-0 h-16 w-px bg-primary/40" />
           <div className="absolute left-0 top-0 h-px w-16 bg-primary/40" />
           <div className="absolute bottom-0 right-0 h-16 w-px bg-primary/40" />

@@ -1,12 +1,7 @@
 "use client"
 
 import { useState, useCallback } from "react"
-import {
-  Shield,
-  Upload,
-  Play,
-  Terminal,
-  AlertTriangle,
+import { Shield, Upload, Play, Terminal, AlertTriangle,
   CheckCircle,
   FileText,
   Loader2,
@@ -19,44 +14,44 @@ const exampleLogs: Record<string, { label: string; logs: string }> = {
   powershell: {
     label: "PowerShell Attack",
     logs: `EventID: 4688
-ProcessName: WINWORD.EXE
-CommandLine: powershell.exe -enc UwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAC0ARgBpAGwAZQBQAGEAdABoACAAJwBoAHQAdABwADoALwAvAG0AYQBsAHcAYQByAGUALgBlAHgAZQAnAA==
-ParentProcess: WINWORD.EXE
-User: CORP\\jsmith
-Timestamp: 2026-03-04T14:23:01Z
-Host: WS-FINANCE-042
-LogSource: Windows Security`,
+    ProcessName: WINWORD.EXE
+    CommandLine: powershell.exe -enc UwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAC0ARgBpAGwAZQBQAGEAdABoACAAJwBoAHQAdABwADoALwAvAG0AYQBsAHcAYQByAGUALgBlAHgAZQAnAA==
+    ParentProcess: WINWORD.EXE
+    User: CORP\\jsmith
+    Timestamp: 2026-03-04T14:23:01Z
+    Host: WS-FINANCE-042
+    LogSource: Windows Security`,
   },
   cloudtrail: {
     label: "AWS CloudTrail",
     logs: `{
-  "eventSource": "iam.amazonaws.com",
-  "eventName": "CreateAccessKey",
-  "sourceIPAddress": "198.51.100.42",
-  "userAgent": "aws-cli/2.15.0",
-  "requestParameters": {
-    "userName": "admin-backup"
-  },
-  "responseElements": {
-    "accessKey": {
-      "accessKeyId": "AKIA***REDACTED***",
-      "status": "Active",
+    "eventSource": "iam.amazonaws.com",
+    "eventName": "CreateAccessKey",
+    "sourceIPAddress": "198.51.100.42",
+    "userAgent": "aws-cli/2.15.0",
+    "requestParameters": {
       "userName": "admin-backup"
-    }
-  },
-  "eventTime": "2026-03-04T08:15:33Z",
-  "awsRegion": "us-east-1"
-}`,
+    },
+    "responseElements": {
+      "accessKey": {
+        "accessKeyId": "AKIA***REDACTED***",
+        "status": "Active",
+        "userName": "admin-backup"
+      }
+    },
+    "eventTime": "2026-03-04T08:15:33Z",
+    "awsRegion": "us-east-1"
+  }`,
   },
   bruteforce: {
     label: "Brute Force",
     logs: `Mar  4 03:14:22 auth-server sshd[28451]: Failed password for root from 203.0.113.50 port 44231 ssh2
-Mar  4 03:14:23 auth-server sshd[28452]: Failed password for root from 203.0.113.50 port 44232 ssh2
-Mar  4 03:14:24 auth-server sshd[28453]: Failed password for admin from 203.0.113.50 port 44233 ssh2
-Mar  4 03:14:25 auth-server sshd[28454]: Failed password for root from 203.0.113.50 port 44234 ssh2
-Mar  4 03:14:26 auth-server sshd[28455]: Failed password for admin from 203.0.113.50 port 44235 ssh2
-Mar  4 03:14:27 auth-server sshd[28456]: Accepted password for root from 203.0.113.50 port 44236 ssh2
-Mar  4 03:14:28 auth-server sshd[28456]: pam_unix(sshd:session): session opened for user root`,
+    Mar  4 03:14:23 auth-server sshd[28452]: Failed password for root from 203.0.113.50 port 44232 ssh2
+    Mar  4 03:14:24 auth-server sshd[28453]: Failed password for admin from 203.0.113.50 port 44233 ssh2
+    Mar  4 03:14:25 auth-server sshd[28454]: Failed password for root from 203.0.113.50 port 44234 ssh2
+    Mar  4 03:14:26 auth-server sshd[28455]: Failed password for admin from 203.0.113.50 port 44235 ssh2
+    Mar  4 03:14:27 auth-server sshd[28456]: Accepted password for root from 203.0.113.50 port 44236 ssh2
+    Mar  4 03:14:28 auth-server sshd[28456]: pam_unix(sshd:session): session opened for user root`,
   },
 }
 
@@ -227,7 +222,6 @@ export function DemoDashboard() {
     setResult(null)
     setAnalyzeProgress(0)
   
-    // Run progress animation
     let step = 0
     const interval = setInterval(() => {
       step++
@@ -243,7 +237,6 @@ export function DemoDashboard() {
         metadata: {},
       })
   
-      // Map backend response to frontend AnalysisResult shape
       setResult({
         severity: data.severity,
         confidence: Math.round(data.confidence * 100),
@@ -267,10 +260,8 @@ export function DemoDashboard() {
 
   return (
     <div className="grid min-h-[calc(100vh-5rem)] gap-6 p-6 lg:grid-cols-2">
-      {/* ─── Left: Log Input Panel ─── */}
       <div className="flex flex-col gap-4">
         <div className="rounded-lg border border-border bg-card overflow-hidden flex flex-col flex-1">
-          {/* Panel header */}
           <div className="flex items-center justify-between border-b border-border px-4 py-3">
             <div className="flex items-center gap-2">
               <Terminal className="h-4 w-4 text-primary" />
@@ -278,7 +269,6 @@ export function DemoDashboard() {
             </div>
           </div>
 
-          {/* Text area */}
           <div className="flex-1 p-4">
             <textarea
               value={logInput}
@@ -291,7 +281,6 @@ export function DemoDashboard() {
             />
           </div>
 
-          {/* File upload area */}
           <div className="border-t border-border px-4 py-3">
             <div className="flex items-center justify-center rounded-md border border-dashed border-border bg-background/50 px-4 py-3">
               <Upload className="mr-2 h-4 w-4 text-muted-foreground" />
@@ -299,21 +288,18 @@ export function DemoDashboard() {
             </div>
           </div>
 
-          {/* Analyze button */}
           <div className="border-t border-border px-4 py-3">
-            <button
-              onClick={handleAnalyze}
-              disabled={!logInput.trim() || isAnalyzing}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
-            >
+            <button onClick={handleAnalyze}
+            disabled={!logInput.trim() || isAnalyzing}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed">
               {isAnalyzing ? (
                 <>
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                  Analyzing...
-                </>
-              ) : (
-                <>
-                  <Zap className="h-4 w-4" />
+                <Loader2 className="h-4 w-4 animate-spin" />
+                 Analyzing...
+                 </>
+                 ) : (
+                 <>
+                 <Zap className="h-4 w-4" />
                   Analyze Incident
                 </>
               )}
@@ -321,7 +307,6 @@ export function DemoDashboard() {
           </div>
         </div>
 
-        {/* Quick demo buttons */}
         <div className="rounded-lg border border-border bg-card p-4">
           <p className="mb-3 text-xs font-mono text-muted-foreground uppercase tracking-wider">Quick Examples</p>
           <div className="grid gap-2 sm:grid-cols-3">
@@ -377,7 +362,6 @@ export function DemoDashboard() {
             </div>
           ) : result ? (
             <div className="space-y-6">
-              {/* Severity & Confidence */}
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className={`rounded-md border p-3 ${severityConfig?.border} ${severityConfig?.bg}`}>
                   <div className="flex items-center gap-2">
@@ -400,7 +384,6 @@ export function DemoDashboard() {
                 </div>
               </div>
 
-              {/* What Happened */}
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <FileText className="h-4 w-4 text-primary" />
@@ -409,7 +392,6 @@ export function DemoDashboard() {
                 <p className="text-sm text-muted-foreground leading-relaxed">{result.summary}</p>
               </div>
 
-              {/* MITRE ATT&CK */}
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <Shield className="h-4 w-4 text-accent" />
@@ -428,7 +410,6 @@ export function DemoDashboard() {
                 </div>
               </div>
 
-              {/* Remediation */}
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <CheckCircle className="h-4 w-4 text-chart-5" />
@@ -446,7 +427,6 @@ export function DemoDashboard() {
                 </div>
               </div>
 
-              {/* Executive Summary */}
               <div className="rounded-lg border border-border bg-secondary/30 p-4">
                 <h3 className="mb-2 text-xs font-semibold text-foreground font-mono uppercase tracking-wider">Executive Summary</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{result.executive}</p>

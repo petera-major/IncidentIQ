@@ -48,9 +48,7 @@ export function HowItWorks() {
           </p>
         </div>
 
-        {/* Pipeline visualization */}
         <div className="relative mx-auto max-w-4xl">
-          {/* Connection line */}
           <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-border md:block" />
           <div
             className="absolute left-1/2 top-0 hidden w-px -translate-x-1/2 bg-primary transition-all duration-500 md:block"
@@ -64,7 +62,6 @@ export function HowItWorks() {
 
               return (
                 <div key={i} className="relative flex items-center gap-6 md:gap-8">
-                  {/* Icon */}
                   <div className="relative z-10 flex-shrink-0">
                     <div
                       className={`flex h-14 w-14 items-center justify-center rounded-lg border transition-all duration-500 ${
@@ -77,7 +74,6 @@ export function HowItWorks() {
                     </div>
                   </div>
 
-                  {/* Content */}
                   <div
                     className={`rounded-lg border p-6 transition-all duration-500 flex-1 ${
                       isActive

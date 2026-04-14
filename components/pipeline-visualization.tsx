@@ -34,7 +34,6 @@ export function PipelineVisualization() {
     return () => clearInterval(stageInterval)
   }, [])
 
-  // Typing effect for status text
   useEffect(() => {
     if (currentStage < 0 || currentStage >= pipelineStages.length) return
     const fullText = pipelineStages[currentStage].status
@@ -59,9 +58,7 @@ export function PipelineVisualization() {
         </div>
 
         <div className="mx-auto max-w-3xl">
-          {/* Pipeline card */}
           <div className="rounded-lg border border-border bg-card overflow-hidden">
-            {/* Header */}
             <div className="flex items-center justify-between border-b border-border px-6 py-4">
               <div className="flex items-center gap-3">
                 <Activity className="h-5 w-5 text-primary" />
@@ -75,7 +72,6 @@ export function PipelineVisualization() {
               </div>
             </div>
 
-            {/* Stages */}
             <div className="p-6">
               <div className="flex flex-col gap-6">
                 {pipelineStages.map((stage, i) => {
@@ -86,7 +82,6 @@ export function PipelineVisualization() {
 
                   return (
                     <div key={i} className="relative">
-                      {/* Connector line */}
                       {i < pipelineStages.length - 1 && (
                         <div className="absolute left-5 top-12 h-6 w-px">
                           <div className={`h-full w-full transition-colors duration-300 ${isComplete ? "bg-primary" : "bg-border"}`} />
@@ -144,7 +139,6 @@ export function PipelineVisualization() {
                 })}
               </div>
 
-              {/* Progress bar */}
               <div className="mt-6 h-1 w-full overflow-hidden rounded-full bg-secondary">
                 <div
                   className="h-full rounded-full bg-primary transition-all duration-700"

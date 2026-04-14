@@ -14,7 +14,6 @@ export function ExampleReport() {
 
         <div className="mx-auto max-w-3xl">
           <div className="rounded-lg border border-border bg-card overflow-hidden">
-            {/* Report header */}
             <div className="border-b border-border bg-destructive/5 px-6 py-4">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
@@ -29,7 +28,6 @@ export function ExampleReport() {
               </div>
             </div>
 
-            {/* Severity & confidence */}
             <div className="grid gap-4 border-b border-border p-6 sm:grid-cols-2">
               <div className="flex items-center gap-3">
                 <AlertTriangle className="h-5 w-5 text-destructive" />
@@ -52,7 +50,6 @@ export function ExampleReport() {
             </div>
 
             <div className="p-6 space-y-6">
-              {/* Incident Summary */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <FileText className="h-4 w-4 text-primary" />
@@ -65,7 +62,6 @@ export function ExampleReport() {
                 </p>
               </div>
 
-              {/* MITRE ATT&CK */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <Shield className="h-4 w-4 text-accent" />
@@ -87,7 +83,6 @@ export function ExampleReport() {
                 </div>
               </div>
 
-              {/* Recommended Response */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <CheckCircle className="h-4 w-4 text-chart-5" />
@@ -111,7 +106,6 @@ export function ExampleReport() {
                 </div>
               </div>
 
-              {/* Executive Summary */}
               <div className="rounded-lg border border-border bg-secondary/30 p-4">
                 <h3 className="mb-2 text-sm font-semibold text-foreground font-mono uppercase tracking-wider">Executive Summary</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">

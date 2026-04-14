@@ -32,12 +32,10 @@ export function HeroSection() {
 
   return (
     <section className="cyber-grid relative flex min-h-screen items-center overflow-hidden pt-20">
-      {/* Radial glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/4 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
       <div className="pointer-events-none absolute right-1/4 top-1/2 h-[400px] w-[400px] rounded-full bg-accent/5 blur-[100px]" />
 
       <div className="relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:gap-16">
-        {/* Left: Copy */}
         <div className="flex flex-col justify-center">
           <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5">
             <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow" />
@@ -71,17 +69,14 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right: Terminal Visualization */}
         <div className="flex items-center justify-center">
           <div className="glow-cyan w-full max-w-lg rounded-lg border border-border bg-card">
-            {/* Terminal header */}
             <div className="flex items-center gap-2 border-b border-border px-4 py-3">
               <div className="h-3 w-3 rounded-full bg-destructive/60" />
               <div className="h-3 w-3 rounded-full bg-warning/60" />
               <div className="h-3 w-3 rounded-full bg-chart-5/60" />
               <span className="ml-2 text-xs text-muted-foreground font-mono">incidentiq-analysis</span>
             </div>
-            {/* Terminal body */}
             <div className="p-4 font-mono text-sm">
               {terminalLines.slice(0, visibleLines).map((line, i) => (
                 <div
