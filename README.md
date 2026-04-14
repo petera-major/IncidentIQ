@@ -6,7 +6,7 @@ Security analysts often need to manually interpret massive volumes of data. Inci
 
 The goal of this project is to demonstrate how large language models and modern web tooling can be used to assist Security Operations Center (SOC) workflows.
 
-> 🔧 **Backend Repo:** [petera-major/security-backend](https://github.com/petera-major/security-backend)
+> **Backend Repo:** [petera-major/security-backend](https://github.com/petera-major/security-backend)
 
 ## Key Features
 
